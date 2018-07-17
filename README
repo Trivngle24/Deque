@@ -1,0 +1,61 @@
+Deque Description
+A deque is a double-ended queue. It supports insertion and removal at both its front and its back (but not at any other position). It combines and extends the operations of both a stack (insert at the front and remove from the front) and a queue (insert at the back, remove from the front).
+
+There are a number of possible implementations of a deque; you are to implement this data structure using a singly linked list. This implementation trades off slower execution time for less space: The remove_back method requires linear time, whereas with a doubly-linked list, remove_back could be done in constant time.
+
+Deque Public Methods
+You must implement a class Deque to store data of type int. The deque must be implemented using a singly linked list of Nodes, which we provide below. Note the running time requirements of the various methods.
+
+The class should implement the following public methods:
+
+Deque() = default;
+Request a default constructor that will construct an empty queue.
+
+Deque(const Deque&);
+Construct a deep copy of its constant Deque reference parameter.
+
+~Deque();
+Deallocate dynamic memory allocated by the deque.
+
+The destructor must use constant space.
+
+
+Deque& operator=(const Deque&);
+Copy (deeply) the constant Deque reference parameter into the target object and returns a reference to the target after de-allocating any dynamic memory associated with the original contents of the target.
+
+Where the StringSet class prohibited assigning one StringSet instance to another, the Deque class implements assignment.
+
+If the target is the same as the parameter (the source) the assignment operator should have no effect:
+
+Deque d {};
+d.insert_front(1);
+d = d; // calls operator=(const Deque&) with d as parameter and target---no effect
+The return statement of an operator= should be
+
+return *this;
+void insert_front(int);
+Insert its parameter at the front of the deque; must run in constant (O(1)) time.
+
+void insert_back(int);
+Insert its parameter at the back of the deque; must run in constant (O(1)) time.
+
+int remove_front();
+Remove and return the value at the front of the deque; if the deque is empty throw a runtime_error (this error class is defined in the stdexcept library file); must run in constant (O(1)) time.
+
+int remove_back();
+Remove and return the value at the back of the deque; if the deque is empty throw a runtime_error; must run in linear (O(n)) time.
+
+int peek_front() const;
+Return the value at the front of the deque without removing it; if the deque is empty throw a runtime_error; must run in constant (O(1)) time.
+
+int peek_back() const;
+Return the value at the back of the deque without removing it; if the deque is empty throw a runtime_error; must run in constant (O(1)) time.
+
+bool empty() const;
+Return true if the deque is empty, false otherwise.
+
+int size() const;
+Return the number of items stored in the deque; must ruin in constant O(1) time.
+
+void print_queue(const std::string& label) const;
+For debugging only, a routine that prints all the Nodes in the queue, together with the pointers to the head and tail and the size of the queue. This routine calls the Node output function (provided below) to print a Node. You can format the output as you see fit.
